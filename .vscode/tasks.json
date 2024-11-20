@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"appId": "dev-agents",
+			"grpcPort": 50001,
+			"httpPort": 3500,
+			"appPort": 5244,
+			"componentsPath": "samples/gh-flow/components",
+			"label": "dapr-debug",
+			"type": "dapr"
+		},
+		{
+			"appId": "dev-agents",
+			"label": "daprd-down",
+			"type": "daprd-down"
+		}
+	]
+}

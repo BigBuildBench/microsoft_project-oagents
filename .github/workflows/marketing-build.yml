@@ -1,0 +1,37 @@
+name: '[Marketing Sample] Build sample application'
+run-name: '[PR #${{github.event.pull_request.number}}] [Marketing Sample] Build sample application'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - samples/marketing/**
+      - .github/workflows/marketing-build.yml
+      - src/**
+  pull_request:
+    branches:
+      - '**'
+    paths:
+    - samples/marketing/**
+    - .github/workflows/marketing-build.yml
+    - src/**
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build the backend
+        run: |
+          docker build -t marketing-backend -f samples/marketing/src/backend/Dockerfile .
+        shell: pwsh
+
+      - name: Build the frontend
+        run: |
+          cd samples/marketing/src/frontend/
+          docker build -t marketing-frontend .
+        shell: pwsh

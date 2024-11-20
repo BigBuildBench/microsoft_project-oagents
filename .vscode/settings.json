@@ -1,0 +1,4 @@
+{
+    "dotnet.defaultSolution": "Microsoft.AI.Agents.sln",
+    "debug.internalConsoleOptions": "neverOpen",
+}
